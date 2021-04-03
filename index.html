@@ -14,13 +14,18 @@
     <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
     <link rel="stylesheet" href="css/leaflet-measure.css">
     <style>
+        #outerdiv {
+            width: 90%;
+            height: 90%;
+            position: fixed;
+            text-align: center
+        }
+        
         #map {
-            width: 20cm;
-            height: 15cm;
-            display: flex;
-            align-content: center;
-            align-self: center;
-            align-items: center;
+            width: 70%;
+            height: 100%;
+            margin: 0px auto;
+            display: inline-block
         }
     </style>
     <title>Flood Analysis Example</title>
@@ -69,24 +74,25 @@
             </div>
         </div>
     </div>
+    <div id="outerdiv">
+        <div id="map"></div>
 
-    <div id="map" align="center">
     </div>
-    <script src="js/qgis2web_expressions.js"></script>
-    <script src="js/leaflet.js"></script>
-    <script src="js/L.Control.Locate.min.js"></script>
-    <script src="js/leaflet.rotatedMarker.js"></script>
-    <script src="js/leaflet.pattern.js"></script>
-    <script src="js/leaflet-hash.js"></script>
-    <script src="js/Autolinker.min.js"></script>
-    <script src="js/rbush.min.js"></script>
-    <script src="js/labelgun.min.js"></script>
-    <script src="js/labels.js"></script>
-    <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
-    <script src="js/leaflet-measure.js"></script>
-    <script src="data/InundatedAreas_1.js"></script>
-    <script src="data/InundatedRoads_2.js"></script>
-    <script src="data/InundatedBuildings_3.js"></script>
+    <script src=" js/qgis2web_expressions.js "></script>
+    <script src="js/leaflet.js "></script>
+    <script src="js/L.Control.Locate.min.js "></script>
+    <script src="js/leaflet.rotatedMarker.js "></script>
+    <script src="js/leaflet.pattern.js "></script>
+    <script src="js/leaflet-hash.js "></script>
+    <script src="js/Autolinker.min.js "></script>
+    <script src="js/rbush.min.js "></script>
+    <script src="js/labelgun.min.js "></script>
+    <script src="js/labels.js "></script>
+    <script src="js/leaflet-control-geocoder.Geocoder.js "></script>
+    <script src="js/leaflet-measure.js "></script>
+    <script src="data/InundatedAreas_1.js "></script>
+    <script src="data/InundatedRoads_2.js "></script>
+    <script src="data/InundatedBuildings_3.js "></script>
     <script>
         var highlightLayer;
 
@@ -113,7 +119,7 @@
             [41.308303569515616, 29.152750339041937]
         ]);
         var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web " target="_blank ">qgis2web</a> &middot; <a href="https://leafletjs.com " title="A JS library for interactive maps ">Leaflet</a> &middot; <a href="https://qgis.org ">QGIS</a>');
         var autolinker = new Autolinker({
             truncate: {
                 length: 30,
@@ -165,19 +171,19 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['FID_buffer'] !== null ? autolinker.link(feature.properties['FID_buffer'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['FID_buffer'] !== null ? autolinker.link(feature.properties['FID_buffer'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Id'] !== null ? autolinker.link(feature.properties['Id'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['Id'] !== null ? autolinker.link(feature.properties['Id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['FID_classi'] !== null ? autolinker.link(feature.properties['FID_classi'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['FID_classi'] !== null ? autolinker.link(feature.properties['FID_classi'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Id_1'] !== null ? autolinker.link(feature.properties['Id_1'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['Id_1'] !== null ? autolinker.link(feature.properties['Id_1'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['gridcode'] !== null ? autolinker.link(feature.properties['gridcode'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['gridcode'] !== null ? autolinker.link(feature.properties['gridcode'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {
@@ -226,76 +232,76 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['FID_gis_os'] !== null ? autolinker.link(feature.properties['FID_gis_os'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['FID_gis_os'] !== null ? autolinker.link(feature.properties['FID_gis_os'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['osm_id'] !== null ? autolinker.link(feature.properties['osm_id'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['osm_id'] !== null ? autolinker.link(feature.properties['osm_id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['code'] !== null ? autolinker.link(feature.properties['code'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['code'] !== null ? autolinker.link(feature.properties['code'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['fclass'] !== null ? autolinker.link(feature.properties['fclass'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['fclass'] !== null ? autolinker.link(feature.properties['fclass'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ref'] !== null ? autolinker.link(feature.properties['ref'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['ref'] !== null ? autolinker.link(feature.properties['ref'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['oneway'] !== null ? autolinker.link(feature.properties['oneway'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['oneway'] !== null ? autolinker.link(feature.properties['oneway'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['maxspeed'] !== null ? autolinker.link(feature.properties['maxspeed'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['maxspeed'] !== null ? autolinker.link(feature.properties['maxspeed'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['layer'] !== null ? autolinker.link(feature.properties['layer'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['layer'] !== null ? autolinker.link(feature.properties['layer'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['bridge'] !== null ? autolinker.link(feature.properties['bridge'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['bridge'] !== null ? autolinker.link(feature.properties['bridge'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['tunnel'] !== null ? autolinker.link(feature.properties['tunnel'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['tunnel'] !== null ? autolinker.link(feature.properties['tunnel'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['FID_inters'] !== null ? autolinker.link(feature.properties['FID_inters'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['FID_inters'] !== null ? autolinker.link(feature.properties['FID_inters'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['FID_buffer'] !== null ? autolinker.link(feature.properties['FID_buffer'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['FID_buffer'] !== null ? autolinker.link(feature.properties['FID_buffer'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Id'] !== null ? autolinker.link(feature.properties['Id'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['Id'] !== null ? autolinker.link(feature.properties['Id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['FID_classi'] !== null ? autolinker.link(feature.properties['FID_classi'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['FID_classi'] !== null ? autolinker.link(feature.properties['FID_classi'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Id_1'] !== null ? autolinker.link(feature.properties['Id_1'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['Id_1'] !== null ? autolinker.link(feature.properties['Id_1'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['gridcode'] !== null ? autolinker.link(feature.properties['gridcode'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['gridcode'] !== null ? autolinker.link(feature.properties['gridcode'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['LENGTH'] !== null ? autolinker.link(feature.properties['LENGTH'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['LENGTH'] !== null ? autolinker.link(feature.properties['LENGTH'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['START_X'] !== null ? autolinker.link(feature.properties['START_X'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['START_X'] !== null ? autolinker.link(feature.properties['START_X'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['START_Y'] !== null ? autolinker.link(feature.properties['START_Y'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['START_Y'] !== null ? autolinker.link(feature.properties['START_Y'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['MID_X'] !== null ? autolinker.link(feature.properties['MID_X'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['MID_X'] !== null ? autolinker.link(feature.properties['MID_X'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['MID_Y'] !== null ? autolinker.link(feature.properties['MID_Y'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['MID_Y'] !== null ? autolinker.link(feature.properties['MID_Y'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['END_X'] !== null ? autolinker.link(feature.properties['END_X'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['END_X'] !== null ? autolinker.link(feature.properties['END_X'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['END_Y'] !== null ? autolinker.link(feature.properties['END_Y'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['END_Y'] !== null ? autolinker.link(feature.properties['END_Y'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {
@@ -342,43 +348,43 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['FID_gis_os'] !== null ? autolinker.link(feature.properties['FID_gis_os'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['FID_gis_os'] !== null ? autolinker.link(feature.properties['FID_gis_os'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['osm_id'] !== null ? autolinker.link(feature.properties['osm_id'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['osm_id'] !== null ? autolinker.link(feature.properties['osm_id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['code'] !== null ? autolinker.link(feature.properties['code'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['code'] !== null ? autolinker.link(feature.properties['code'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['fclass'] !== null ? autolinker.link(feature.properties['fclass'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['fclass'] !== null ? autolinker.link(feature.properties['fclass'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['type'] !== null ? autolinker.link(feature.properties['type'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['type'] !== null ? autolinker.link(feature.properties['type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['FID_inters'] !== null ? autolinker.link(feature.properties['FID_inters'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['FID_inters'] !== null ? autolinker.link(feature.properties['FID_inters'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['FID_buffer'] !== null ? autolinker.link(feature.properties['FID_buffer'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['FID_buffer'] !== null ? autolinker.link(feature.properties['FID_buffer'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Id'] !== null ? autolinker.link(feature.properties['Id'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['Id'] !== null ? autolinker.link(feature.properties['Id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['FID_classi'] !== null ? autolinker.link(feature.properties['FID_classi'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['FID_classi'] !== null ? autolinker.link(feature.properties['FID_classi'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Id_1'] !== null ? autolinker.link(feature.properties['Id_1'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['Id_1'] !== null ? autolinker.link(feature.properties['Id_1'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['gridcode'] !== null ? autolinker.link(feature.properties['gridcode'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['gridcode'] !== null ? autolinker.link(feature.properties['gridcode'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['POLY_AREA'] !== null ? autolinker.link(feature.properties['POLY_AREA'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2 ">' + (feature.properties['POLY_AREA'] !== null ? autolinker.link(feature.properties['POLY_AREA'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {
@@ -427,10 +433,10 @@
             .title += 'Search for a place';
         var baseMaps = {};
         L.control.layers(baseMaps, {
-            '<img src="legend/InundatedBuildings_3.png" /> Inundated Buildings': layer_InundatedBuildings_3,
-            '<img src="legend/InundatedRoads_2.png" /> Inundated Roads': layer_InundatedRoads_2,
-            '<img src="legend/InundatedAreas_1.png" /> Inundated Areas': layer_InundatedAreas_1,
-            "OpenStreetMap": layer_OpenStreetMap_0,
+            '<img src="legend/InundatedBuildings_3.png " /> Inundated Buildings': layer_InundatedBuildings_3,
+            '<img src="legend/InundatedRoads_2.png " /> Inundated Roads': layer_InundatedRoads_2,
+            '<img src="legend/InundatedAreas_1.png " /> Inundated Areas': layer_InundatedAreas_1,
+            "OpenStreetMap ": layer_OpenStreetMap_0,
         }).addTo(map);
         setBounds();
     </script>
