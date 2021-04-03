@@ -14,11 +14,19 @@
     <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
     <link rel="stylesheet" href="css/leaflet-measure.css">
     <style>
-        #map {
-            height: 70%;
-            width: 50%;
+        #outerdiv {
+            width: 90%;
+            height: 90%;
+            position: fixed;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        #map {
+            width: 100%;
+            height: 100%;
+            margin: 0px auto;
+            display: inline-block
         }
     </style>
     <title>Flood Analysis Example</title>
@@ -67,10 +75,10 @@
             </div>
         </div>
     </div>
+    <div id="outerdiv">
+        <div id="map"></div>
 
-    <div id="map"></div>
-
-
+    </div>
     <script src=" js/qgis2web_expressions.js "></script>
     <script src="js/leaflet.js "></script>
     <script src="js/L.Control.Locate.min.js "></script>
