@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Source+Sans+Pro:wght@300&display=swap');
+        body {
+            background-color: rgba(238, 187, 187, 0.1);
+        }
+        
+        #header {
+            width: 100%;
+            background-color: chartreuse;
+            position: fixed;
+            margin: 0px;
+            padding: 0px;
+            margin-top: -20px;
+            margin-left: -8px;
+            height: 5em;
+        }
+        
+        #footer {
+            width: 100%;
+            height: 3em;
+            background-color: chartreuse;
+            position: fixed;
+            margin-left: -8px;
+            padding: 0px;
+            bottom: 0;
+        }
+        
+        #header-img {
+            height: 2em;
+            margin-top: 30px;
+            margin-left: 50px;
+            position: relative;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin-top: -65px;
+        }
+        
+        li {
+            float: right;
+            display: flex;
+            padding: 10px;
+            margin-right: 100px;
+            font-family: Lato;
+            font-size: 2em;
+        }
+        
+        li:hover {
+            background-color: blueviolet;
+            border-color: chartreuse;
+            border-radius: 10%;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: white;
+        }
+        
+        #contents {
+            width: 100%;
+            height: 100%;
+            padding-top: 5em;
+            border-radius: 5%;
+            font-size: 20px;
+        }
+        
+        #about {
+            font-family: Source Sans Pro;
+            width: 40%;
+            text-align: justify;
+            border-style: solid;
+            background-color: chartreuse;
+            color: black;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-color: chartreuse;
+            float: left;
+            border-radius: 5%;
+            margin-left: 30px;
+        }
+        
+        #courses {
+            font-family: Source Sans Pro;
+            width: 40%;
+            text-align: justify;
+            border-style: solid;
+            background-color: chartreuse;
+            color: black;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-color: chartreuse;
+            float: right;
+            border-radius: 5%;
+            margin-right: 30px;
+        }
+        
+        #video1 {
+            font-family: Source Sans Pro;
+            width: 40%;
+            height: auto;
+            text-align: center;
+            border-style: solid;
+            background-color: chartreuse;
+            color: black;
+            border-color: chartreuse;
+            float: left;
+            margin-top: 1em;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5%;
+            padding-bottom: 10px;
+            margin-left: 30px;
+        }
+        
+        #register {
+            font-family: Source Sans Pro;
+            width: 40%;
+            height: max-content;
+            text-align: center;
+            border-style: solid;
+            background-color: chartreuse;
+            color: black;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-color: chartreuse;
+            float: right;
+            border-radius: 5%;
+            margin-right: 30px;
+            margin-top: 1em;
+            display: block;
+            height: 21.5em;
+        }
+        
+        #form {
+            padding-top: 12%;
+        }
+        
+        .textinp {
+            text-align: left;
+            width: 80%;
+        }
+        
+        iframe {
+            width: 70%;
+        }
+        
+        @media screen and (max-width: 1000px) {
+            li {
+                margin-top: 3em;
+                font-size: 1.5em;
+                padding: 1px;
+                margin-right: 80px;
+            }
+            #header {
+                height: 8em;
+            }
+            #contents {
+                padding-top: 10em;
+                border-radius: 10%;
+            }
+        }
+    </style>
+    <title>Product Landing Webpage</title>
+
+</head>
+
+<body>
+    <div id="main">
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+        <header id=header> <img src="https://design-style-guide.freecodecamp.org/downloads/fcc_secondary_large.svg" alt="freecodecamplogo" id="header-img">
+            <nav id="nav-bar" class="nav">
+                <ul>
+                    <li>
+                        <a href="#about" class="nav-link">About </a>
+                    </li>
+                    <li>
+                        <a href="#courses" class="nav-link">Courses</a>
+                    </li>
+                    <li>
+                        <a href="#header-img" class="nav-link">Home</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div id="contents">
+            <div id="about">
+                <p>
+                    <h1 style="text-align: center;">About freeCodeCamp</h1>freeCodeCamp (also referred to as “Free Code Camp”) is a non-profit organization that consists of an interactive learning web platform, an online community forum, chat rooms, online publications and local organizations
+                    that intend to make learning web development accessible to anyone. Beginning with tutorials that introduce students to HTML, CSS and JavaScript, students progress to project assignments that they complete either alone or in pairs.
+                    Upon completion of all project tasks, students are partnered with other nonprofits to build web applications, giving the students practical development experience.
+                    <a href="freecodecamp.org">freeCodeCamp</a>
+                </p>
+            </div>
+            <div id="courses">
+                <p>
+                    <h1 style="text-align: center; ">Courses</h1>The self-paced curriculum involves 1,400 hours of interactive coding challenges and web development projects, plus 800 hours of contributing to open-source projects for nonprofits and is constantly expanded by more challenges
+                    and projects. This translates into about one year of full-time coding. The curriculum is divided into Responsive Web Design, JavaScript Algorithms and Data Structures, Front End Libraries, Data Visualization, APIs and Microservices,
+                    and Information Security and Quality Assurance. Participants receive a certificate after completing each section.
+                    <a href="https://www.freecodecamp.org/learn ">Visit curriculum page!</a>
+                </p>
+            </div>
+            <div id="video1" class="video">
+
+                <h1>Video</h1><iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/oXlwWbU8l2o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+            </div>
+            <div id="register">
+                <h1 style="text-align: center;">Registration</h1>
+                <form id="form" action="www.freecodecamp.com/email-submit"><label for="email">Please write your e-mail adress.</label><br><input type="email" id="email" name="email" class="textinp" placeholder="xxxx@gmail.com" required><input type="submit" value="Submit" id="submit" name="email"></form>
+            </div>
+        </div>
+        <footer id="footer"></footer>
+    </div>
+</body>
+
+</html>

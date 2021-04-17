@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geopandas Technical Documentation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+        #main-doc {
+            margin-left: 15%;
+            margin-top: 10%;
+            font-family: Roboto;
+            font-size: auto;
+            width: 80%;
+            float: right;
+        }
+        
+        h1 {
+            color: green;
+        }
+        
+        #navbar {
+            position: fixed;
+            top: 19%;
+            left: 0;
+            font-family: Roboto;
+            color: green;
+            width: 20%;
+            float: left;
+        }
+        
+        #navbar header {
+            text-align: center;
+            position: fixed;
+            margin-left: 9.5%;
+        }
+        
+        #navlist {
+            list-style-type: none;
+        }
+        
+        #navlist li {
+            padding-top: 20px;
+            text-align: center;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: brown;
+            text-align: center;
+        }
+        
+        @media screen and (max-width:1500px) {
+            #navbar {
+                width: 30%;
+            }
+            #main-doc {
+                width: 70%;
+            }
+            #navbar header {
+                margin-left: 15%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <main id="main-doc">
+        <section id="Data_Structures" class="main-section">
+            <header id="header1">
+                <h1>Data Structures</h1>
+            </header>
+            <br>
+
+
+
+            <p>GeoPandas implements two main data structures, a GeoSeries and a GeoDataFrame. These are subclasses of pandas Series and DataFrame, respectively.
+
+            </p>
+            <br>
+            <h3>GeoSeries</h3>
+            <p>A GeoSeries is essentially a vector where each entry in the vector is a set of shapes corresponding to one observation. An entry may consist of only one shape (like a single polygon) or multiple shapes that are meant to be thought of as one
+                observation (like the many polygons that make up the State of Hawaii or a country like Indonesia). geopandas has three basic classes of geometric objects (which are actually shapely objects):
+                <ul>
+                    <li>Points/ Multi-Points</li>
+                    <li>Lines / Multi-Lines</li>
+                    <li>Polygons / Multi-Polygons</li>
+                </ul> Note that all entries in a GeoSeries need not be of the same geometric type, although certain export operations will fail if this is not the case. </p>
+            <br>
+            <h3>GeoDataFrame</h3>
+            <p>A GeoDataFrame is a tabular data structure that contains a GeoSeries. The most important property of a GeoDataFrame is that it always has one GeoSeries column that holds a special status. This GeoSeries is referred to as the GeoDataFrame’s
+                “geometry”. When a spatial method is applied to a GeoDataFrame (or a spatial attribute like area is called), this commands will always act on the “geometry” column. The “geometry” column – no matter its name – can be accessed through the
+                geometry attribute (<code>gdf.geometry</code>), and the name of the geometry column can be found by typing gdf.geometry.name. A GeoDataFrame may also contain other columns with geometrical (shapely) objects, but only one column can be
+                the active geometry at a time. To change which column is the active geometry column, use the <code>GeoDataFrame.set_geometry() </code>method.</p>
+
+        </section>
+        <section id="Reading_Files" class="main-section">
+            <header id="header2">
+                <h1>Reading Files</h1>
+            </header>
+            <br>
+
+
+
+            <h3>Reading Spatial Data</h3>
+            <br>
+            <p>geopandas can read almost any vector-based spatial data format including ESRI shapefile, GeoJSON files and more using the command <code>geopandas.read_file()</code> which returns a GeoDataFrame object. This is possible because geopandas makes
+                use of the great fiona library, which in turn makes use of a massive open-source program called GDAL/OGR designed to facilitate spatial data transformations.</p>
+
+        </section>
+        <section id="Indexing_and_Selecting_Data" class="main-section">
+            <header id="header3">
+                <h1>Indexing and Selecting Data</h1>
+            </header>
+            <br>
+
+
+
+            <p>GeoPandas inherits the standard pandas methods for indexing/selecting data. This includes label based indexing with <code>.loc</code> and integer position based indexing with <code>.iloc</code>, which apply to both GeoSeries and GeoDataFrame
+                objects. For more information on indexing/selecting, see the pandas documentation. In addition to the standard pandas methods, GeoPandas also provides coordinate based indexing with the cx indexer, which slices using a bounding box. Geometries
+                in the GeoSeries or GeoDataFrame that intersect the bounding box will be returned.</p>
+
+
+        </section>
+        <section id="Mapping_and_Plotting_Tool" class="main-section">
+            <header id="header4">
+                <h1>Mapping and Plotting Tool</h1>
+            </header>
+            <br>
+
+
+            <p>geopandas provides a high-level interface to the matplotlib library for making maps. Mapping shapes is as easy as using the plot() method on a GeoSeries or GeoDataFrame.Note that in general, any options one can pass to pyplot in matplotlib
+                (or style options that work for lines) can be passed to the <code>plot() </code>method.
+
+            </p>
+            <br>
+            <h3>Choropleth Maps</h3>
+
+            <p>geopandas makes it easy to create Choropleth maps (maps where the color of each shape is based on the value of an associated variable). Simply use the plot command with the column argument set to the column whose values you want used to assign
+                colors.
+            </p>
+        </section>
+        <section id="Managing_Projections" class="main-section">
+            <header id="header5">
+                <h1>Managing Projections</h1>
+            </header>
+            <br>
+
+
+
+
+            <h3>Coordinate Reference Systems
+            </h3>
+
+            <p>The Coordinate Reference System (CRS) is important because the geometric shapes in a GeoSeries or GeoDataFrame object are simply a collection of coordinates in an arbitrary space. A CRS tells Python how those coordinates relate to places on
+                the Earth. You can find the codes for most commonly used projections from www.spatialreference.org. The same CRS can often be referred to in many ways. For example, one of the most commonly used CRS is the WGS84 latitude-longitude projection.
+                This can be referred to using the authority code "EPSG:4326". geopandas can accept anything accepted by <code>pyproj.CRS.from_user_input()</code> </p>
+        </section>
+        <section id="Geometric_Manipulations" class="main-section">
+            <header>
+                <h1>Geometric Manipulations</h1>
+            </header>
+            <br>
+            <p>geopandas makes available all the tools for geometric manipulations in the shapely library. Note that documentation for all set-theoretic tools for creating new shapes using the relationship between two different spatial datasets – like creating
+                intersections, or differences – can be found on the set operations page.</p>
+        </section>
+        <section id="Merging_Data" class="main-section">
+            <header>
+                <h1>Merging Data</h1>
+            </header>
+            <br>
+            <p>There are two ways to combine datasets in geopandas –
+                <ul>
+                    <li>attribute joins</li>
+                    <li>spatial joins</li>
+                </ul> In an attribute join, a GeoSeries or GeoDataFrame is combined with a regular pandas Series or DataFrame based on a common variable. This is analogous to normal merging or joining in pandas. In a Spatial Join, observations from two GeoSeries
+                or GeoDataFrames are combined based on their spatial relationship to one another.</p>
+        </section>
+    </main>
+    <nav id="navbar">
+        <header>Sections</header>
+        <ul id="navlist">
+            <li>
+                <a href="#Data_Structures" class="nav-link">Data Structures</a>
+            </li>
+            <li>
+                <a href="#Reading_Files" class="nav-link">Reading Files</a>
+            </li>
+            <li>
+                <a href="#Indexing_and_Selecting_Data" class="nav-link">Indexing and Selecting Data</a>
+            </li>
+            <li>
+                <a href="#Mapping_and_Plotting_Tool" class="nav-link">Mapping and Plotting Tool</a>
+            </li>
+            <li>
+                <a href="#Managing_Projections" class="nav-link">Managing Projections</a>
+            </li>
+            <li>
+                <a href="#Geometric_Manipulations" class="nav-link">Geometric Manipulations</a>
+            </li>
+            <li>
+                <a href="#Merging_Data" class="nav-link">Merging Data</a>
+            </li>
+        </ul>
+    </nav>
+
+
+</body>
+
+</html>
+
+</html>

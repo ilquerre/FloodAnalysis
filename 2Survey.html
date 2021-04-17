@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Source+Sans+Pro:wght@300&display=swap');
+        h1 {
+            text-align: center;
+            font-family: Lato;
+        }
+        
+        p {
+            text-align: center;
+            font-family: Lato;
+        }
+        
+        #form {
+            font-family: Source Sans Pro;
+            margin-right: auto;
+            margin-left: auto;
+            padding-top: 50px;
+            background-color: rgb(19, 231, 65);
+            max-width: 600px;
+            width: 500px;
+            position: relative;
+            text-align: center;
+            border-radius: 3%;
+            border-color: rgb(19, 231, 65);
+        }
+        
+        .textinp {
+            max-width: 500px;
+            width: 400px;
+            align-items: center;
+            text-align: left;
+        }
+        
+        .textarea {
+            width: 400px;
+            max-width: 500px;
+            height: 400px;
+            max-height: 500px;
+        }
+    </style>
+    <title>Survey Page</title>
+</head>
+
+<body>
+    <div id="main">
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+        <div id="headers">
+            <h1 id="title">How strong are your coding skills?</h1>
+            <p id="description">A survey to examine my friends' coding skills.</p>
+        </div>
+        <div id="form">
+            <form action="" id="survey-form">
+                <label for="name" id="name-label">Please enter your name.</label>
+                <br><input type="text" id="name" class="textinp" placeholder="Ilker Karakap" required>
+                <br><label for="email" id="email-label">Please enter your email adress.</label>
+                <br><input type="email" id="email" class="textinp" placeholder="x@gmail.com" required>
+                <br><label for="number" id="number-label">Age (Optional)</label>
+                <br><input type="number" name="age" id="number" class="textinp" max="100" min="18" placeholder="18-100">
+                <br><label for="dropdown">Choose your favorite programming language:</label>
+                <br><select name="dropdown" id="dropdown" class="textinp">
+                    <option value="c">C</option>
+                   <option value="Python">Python</option>
+                   <option value="C++">C++</option>
+                   <option value="Java">Java</option>
+                   <option value="Javascript">Javascript</option>
+                   <option value="Ruby">Ruby</option>
+                
+                
+                </select>
+                <br><label for="15">How good are you in your favorite programming language? (1-5):</label>
+                <br><input type="radio" name="15" value="1" id="1">
+                <label for="1">1</label>
+                <input type="radio" name="15" value="2" id="2">
+                <label for="2">2</label>
+                <input type="radio" name="15" value="3" id="3">
+                <label for="3">3</label>
+                <input type="radio" name="15" value="4" id="4">
+                <label for="4">4</label>
+                <input type="radio" name="15" value="5" id="5">
+                <label for="5">5</label>
+
+                <br><label for="checkbox">What kind of developer you think you are?</label>
+                <br><input type="checkbox" id="backend" name="checkbox" value="backend">
+                <label for="backend">Back-End</label>
+                <input type="checkbox" id="frontend" name="checkbox" value="frontend">
+                <label for="frontend">Front-End</label>
+                <input type="checkbox" id="fullstack" name="checkbox" value="fullstack">
+                <label for="fullstack">Full-Stack</label>
+                <br> <label for="textarea">Please tell us your additional comments about page.</label>
+                <textarea name="textarea" id="textarea" cols="30" rows="10" form="survey-form" class="textarea"></textarea>
+                <br> <input type="submit" form="survey-form" id="submit">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+</html>
